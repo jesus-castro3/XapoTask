@@ -1,18 +1,25 @@
 import {
     SET_PROJECT_LIST,
-    SET_CONTRIBUTORS
-} from '../actions'
+    SET_PROJECT
+} from '../actions';
 
-const projects = (state = [], action) => {
+export const projects = (state = [], action) => {
     switch (action.type) {
         case SET_PROJECT_LIST:
-            return action.projects            
+            return action.projects;          
             
         default:
-         return state
+            return state;
     }
 
-}
+};
 
-
-export default projects
+export const project = (state = {}, action) => {
+    switch(action.type) {
+        case SET_PROJECT:
+            return action.project;         
+            
+        default:
+            return state;
+    }
+};

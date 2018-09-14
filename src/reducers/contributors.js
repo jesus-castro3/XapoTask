@@ -1,4 +1,4 @@
-import { SET_CONTRIBUTORS} from '../actions';
+import { SET_CONTRIBUTORS } from '../actions';
 
 const contributors = (state = [], action) => {
     switch (action.type) {

@@ -12,7 +12,7 @@ export default class ProjectList extends Component {
     return(
       <ul className="project-list">
         {projects.map(project => (
-          <ProjectItem key={project.id} item={project} onClick={onClick} />
+          <ProjectItem key={project.id} project={project} onClick={onClick} />
         ))}
       </ul>
     )

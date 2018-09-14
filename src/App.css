@@ -1,28 +1,72 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.sidebar {
+  width: 30%;
+  text-align: center;
+  border-right: 2px solid #557dc7;
+  background: #7fadd8;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
+.sidebar > h1 {
+  background: #4674c9;
+  margin: 0;
+  padding: 16px;
+  color: #ffffff;
+  border: 1px solid #3e6ec7;
+}
+
+ul.project-list {
+  background: #7fadd8;
+  margin: 0;
+  padding: 0;
+}
+
+li.project-list__item {
+  list-style: none;
+  padding: 16px;
+}
+
+li.project-list__item:hover {
+  background: #557dc7;
+  cursor: pointer;
+  color: #fff;
+}
+
+.project-view {
+  width: 70%;
+  text-align: center;
+}
+
+.project-view__details {
+  display: flex;
+}
+
+.project-view__details p {
   padding: 20px;
-  color: white;
+  width: 25%;
 }
 
-.App-title {
-  font-size: 1.5em;
+.project-card-container,
+.project-card__avatar,
+.project-card__user {
+  display: inline-block;
 }
 
-.App-intro {
-  font-size: large;
+.project-card {
+  width: 27%;
+  display: inline-block;
+  border: 2px solid #cacaca;
+  box-sizing: border-box;
+  margin: 2%;
+  padding: 20px;
+  border-radius: 0px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.project-card__avatar img {
+  height: 150px;
+  width: 150px;
 }

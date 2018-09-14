@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { all, fork, call, put, take, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import {
   SET_PROJECT_LIST_ASYNC,
   SET_CONTRIBUTORS_ASYNC,
   projectList,
-  setContributor
+  setContributors
 } from './actions';
 
-function fetchApi([url, ...rest]) {
+function fetchApi([url]) {
     return axios.get(url).then(
         res =>  res.data
       , error => ({ error: error.message || 'something really bad happened, bad hombres :(' }));
@@ -24,8 +24,8 @@ function* fetchProjects() {
 
 function* fetchContributors(action) {
     try {
-        const contributors = yield call(fetchApi, action.url);
-        yield put(setContributor(contributors));
+        const contributors = yield call(fetchApi, [action.url]);
+        yield put(setContributors(contributors));
     } catch(e) {
         yield put({ type: 'SET_CONTRIBUTORS_FAILED', msg: e.message });
     }
