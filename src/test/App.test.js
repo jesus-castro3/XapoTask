@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from '../App';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Sidebar from './components/Sidebar';
+import Sidebar from '../components/Sidebar';
 
 configure({ adapter: new Adapter() });
 
@@ -13,11 +13,11 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-describe('<App/>', ()  => {
+describe('<App/>', () => {
   it('should container App class', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find('.App').exists()).toBe(true);
-  })
+  });
   it('renders out 1 Sidebar component', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find(Sidebar).length).toBe(1);
@@ -27,4 +27,3 @@ describe('<App/>', ()  => {
     expect(wrapper.find(Sidebar).length).toBe(1);
   });
 });
-

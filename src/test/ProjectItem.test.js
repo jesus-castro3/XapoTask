@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
-import ProjectItem from './ProjectItem';
+import ProjectItem from '../components/ProjectItem';
 import Adapter from 'enzyme-adapter-react-16';
+
 
 configure({ adapter: new Adapter });
 

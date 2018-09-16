@@ -3,7 +3,7 @@ import { projects, project } from './projects';
 import contributors from './contributors';
 
 export default combineReducers({
-    projects,
-    project,
-    contributors
+  projects,
+  project,
+  contributors
 });

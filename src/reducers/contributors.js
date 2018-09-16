@@ -1,14 +1,13 @@
 import { SET_CONTRIBUTORS } from '../actions';
 
 const contributors = (state = [], action) => {
-    switch (action.type) {
+  switch (action.type) {
+    case SET_CONTRIBUTORS:
+      return action.contributors;
 
-        case SET_CONTRIBUTORS:
-            return action.contributors
-
-        default:
-            return state
-    }
-}
+    default:
+      return state;
+  }
+};
 
 export default contributors;
