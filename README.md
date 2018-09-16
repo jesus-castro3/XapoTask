@@ -3,7 +3,7 @@
 2. npm 5.x.x
 
 
-## This projects uses create-react-app scaffolding tool after setting up requirements.
+## This projects uses create-react-app scaffolding.
 
 ## Install
 * `npm install`
