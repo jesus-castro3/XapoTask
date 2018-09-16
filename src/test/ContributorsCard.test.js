@@ -10,17 +10,15 @@ describe('<ContributorsCard/>', () => {
     contributors: [
       {
         avatar_url: 'www.fakeurl.com/pic',
-        url: 'www.fakeurl.com',
         login: 'anon_user',
         contributors: 23,
-        repos_url: 'www.fakeurl.com/repos'
+        html_url: 'www.fakeurl.com/repos'
       },
       {
         avatar_url: 'www.fakeurl.com/pic2',
-        url: 'www.fakeurl.com',
         login: 'anon_user2',
         contributors: 25,
-        repos_url: 'www.fakeurl.com/repos2'
+        html_url: 'www.fakeurl.com/repos2'
       }
     ]
   };
@@ -49,7 +47,7 @@ describe('<ContributorsCard/>', () => {
     const wrapper = shallow(<ContributorsCard {...props} />);
     expect(
       wrapper.find('.project-card__url').map((node, idx) => {
-        expect(node.props().href).toBe(props.contributors[idx].url);
+        expect(node.props().href).toBe(props.contributors[idx].html_url);
       })
     );
   });
@@ -58,7 +56,7 @@ describe('<ContributorsCard/>', () => {
     const wrapper = shallow(<ContributorsCard {...props} />);
     expect(
       wrapper.find('.project-card_repos-url').map((node, idx) => {
-        expect(node.props().href).toBe(props.contributors[idx].repos_url);
+        expect(node.props().href).toBe(props.contributors[idx].html_url);
       })
     );
   });

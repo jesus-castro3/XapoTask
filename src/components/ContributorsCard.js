@@ -15,14 +15,14 @@ export default class ContributorsCard extends Component {
             <div className="project-card__user">
               <p>
                 User:{' '}
-                <a className="project-card__url" href={c.url} target="_blank">
+                <a className="project-card__url" href={c.html_url} target="_blank">
                   {c.login}
                 </a>
               </p>
               <p>Contributions: {c.contributions}</p>
               <p>
-                Repos:{' '}
-                <a className="project-card_repos-url" href={c.repos_url} target="_blank">
+                Profile:{' '}
+                <a className="project-card_repos-url" href={c.html_url} target="_blank">
                   here
                 </a>
               </p>
