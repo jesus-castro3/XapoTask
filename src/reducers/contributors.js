@@ -1,6 +1,6 @@
-import { SET_CONTRIBUTORS } from '../actions';
+import { SET_CONTRIBUTORS, SET_CONTRIBUTORS_FAILED } from '../actions';
 
-const contributors = (state = [], action) => {
+export const contributors = (state = [], action) => {
   switch (action.type) {
     case SET_CONTRIBUTORS:
       return action.contributors;
@@ -10,4 +10,12 @@ const contributors = (state = [], action) => {
   }
 };
 
-export default contributors;
+export const contributorsFailed = (state = [], action) => {
+  switch (action.type) {
+    case SET_CONTRIBUTORS_FAILED:
+      return action.error;
+
+    default:
+      return state;
+  }
+};

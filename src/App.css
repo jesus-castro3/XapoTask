@@ -4,6 +4,10 @@
   flex-direction: row;
 }
 
+.hide {
+  display: none;
+}
+
 .sidebar {
   width: 30%;
   text-align: center;
@@ -50,7 +54,14 @@ li.project-list__item:hover {
   width: 25%;
 }
 
-.project-card-container,
+.project-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
 .project-card__avatar,
 .project-card__user {
   display: inline-block;

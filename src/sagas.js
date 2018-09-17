@@ -1,40 +1,32 @@
-import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
+import { FB_GITHUB_REPOS_URL } from './constants';
+import { fetchApi } from './api';
 import {
   SET_PROJECT_LIST_ASYNC,
   SET_CONTRIBUTORS_ASYNC,
+  SET_PROJECT_LIST_FAILED,
+  SET_CONTRIBUTORS_FAILED,
   projectList,
   setContributors
 } from './actions';
 
-function fetchApi([url]) {
-  return axios
-    .get(url)
-    .then(
-      res => res.data,
-      error => ({
-        error: error.message || 'something really bad happened, bad hombres :('
-      })
-    );
-}
-
 function* fetchProjects() {
-  try {
-    const projects = yield call(fetchApi, [
-      'https://api.github.com/orgs/facebook/repos'
-    ]);
-    yield put(projectList(projects));
-  } catch (e) {
-    yield put({ type: 'SET_PROJECT_LIST_FAILED', msg: e.message });
-  }
+    const projects = yield call(fetchApi, [ FB_GITHUB_REPOS_URL]);
+
+    if(projects.error) {
+      yield put({ type: SET_PROJECT_LIST_FAILED, error: projects.error });
+    } else {
+      yield put(projectList(projects));
+    }
 }
 
 function* fetchContributors(action) {
-  try {
-    const contributors = yield call(fetchApi, [action.url]);
+  const contributors = yield call(fetchApi, [action.url]);
+  
+  if(contributors.error) {
+    yield put({ type: SET_CONTRIBUTORS_FAILED, error: contributors.error });
+  } else {
     yield put(setContributors(contributors));
-  } catch (e) {
-    yield put({ type: 'SET_CONTRIBUTORS_FAILED', msg: e.message });
   }
 }
 
