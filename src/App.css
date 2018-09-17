@@ -10,6 +10,7 @@
 
 .sidebar {
   width: 30%;
+  min-width: 200px;
   text-align: center;
   border-right: 2px solid #557dc7;
   background: #7fadd8;
@@ -41,7 +42,6 @@ li.project-list__item:hover {
 }
 
 .project-view {
-  width: 70%;
   text-align: center;
 }
 
@@ -62,22 +62,30 @@ li.project-list__item:hover {
     justify-content: center;
 }
 
-.project-card__avatar,
-.project-card__user {
-  display: inline-block;
-}
-
 .project-card {
   width: 27%;
-  display: inline-block;
+  display: flex;
   border: 2px solid #cacaca;
   box-sizing: border-box;
   margin: 2%;
   padding: 20px;
   border-radius: 0px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.project-card__avatar {
+  width: 130px;
+  height: 130px;
 }
 
 .project-card__avatar img {
-  height: 150px;
-  width: 150px;
+  width: inherit;
+}
+
+
+@media screen and (max-width: 768px) {
+  .project-card {
+    width: 45%;
+  }
 }
