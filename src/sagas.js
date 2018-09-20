@@ -12,19 +12,20 @@ import {
 
 function* fetchProjects() {
     const projects = yield call(fetchApi, [ FB_GITHUB_REPOS_URL]);
-
-    if(projects.error) {
-      yield put({ type: SET_PROJECT_LIST_FAILED, error: projects.error });
+    const { error } = projects;
+    if(error) {
+      yield put({ type: SET_PROJECT_LIST_FAILED, error });
     } else {
       yield put(projectList(projects));
     }
 }
 
-function* fetchContributors(action) {
-  const contributors = yield call(fetchApi, [action.url]);
+function* fetchContributors({action, url}) {
+  const contributors = yield call(fetchApi, [url]);
+  const { error } = contributors;
   
-  if(contributors.error) {
-    yield put({ type: SET_CONTRIBUTORS_FAILED, error: contributors.error });
+  if(error) {
+    yield put({ type: SET_CONTRIBUTORS_FAILED, error });
   } else {
     yield put(setContributors(contributors));
   }

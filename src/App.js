@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
@@ -16,15 +16,13 @@ const store = createStore(
 
 sagaMiddleware.run(rootSaga);
 
-class App extends Component {
-  render() {
-    return <Provider store={store}>
-        <div className="App">
-          <Sidebar />
-          <ProjectViewContainer />
-        </div>
-      </Provider>;
-  }
-}
+const App = () => (
+  <Provider store={store}>
+    <div className="App">
+      <Sidebar/>
+      <ProjectViewContainer />
+    </div>
+  </Provider>
+);
 
 export default App;
