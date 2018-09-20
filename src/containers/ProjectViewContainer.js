@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   contributors: state.contributors,
-  project: state.project
+  project: state.projects.find( p => p.id === state.setProject )
 });
 
 export default connect(mapStateToProps)(ProjectView);

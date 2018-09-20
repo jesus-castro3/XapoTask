@@ -8,25 +8,17 @@ export const projects = (state = [], action) => {
   switch (action.type) {
     case SET_PROJECT_LIST:
       return action.projects;
-
     default:
       return state;
   }
 };
 
-export const project = (state = {}, action) => {
+export const setProject = (state = null, action) => {
   switch (action.type) {
     case SET_PROJECT:
-      return { 
-        hidden: false, 
-        ...action.project 
-      };
-
+      return action.id;
     default:
-      return {
-        hidden: true,
-        ...state
-      };
+      return state;    
   }
 };
 

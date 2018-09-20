@@ -22,10 +22,7 @@ describe('<ProjectView/>', () => {
 
   it('contributors and projects should be defined', () => {
     const wrapper = shallow(<ProjectView {...props} />);
-    expect(wrapper.instance().props.project).toBeDefined();
     expect(wrapper.props()).toBeDefined();
-    expect(wrapper.instance().props.project).toEqual(props.project);
-    expect(wrapper.instance().props.contributors).toEqual(props.contributors);
   });
 
   it('should render project-view and project-view__detail classes', () => {

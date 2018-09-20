@@ -1,4 +1,4 @@
-import { loadProjectList, loadProject, loadContributors } from '../actions';
+import { loadProjectList, setProject, loadContributors } from '../actions';
 import { connect } from 'react-redux';
 import ProjectList from '../components/ProjectList';
 
@@ -15,9 +15,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: (contributors_url, project) => {
+  onClick: (contributors_url, project) => {    
     dispatch(loadContributors(contributors_url));
-    dispatch(loadProject(project));
+    dispatch(setProject(project.id));
   },
   loadProjectList: () => dispatch(loadProjectList())
 });

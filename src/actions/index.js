@@ -12,9 +12,9 @@ export const projectList = projects => ({
   projects: projects
 });
 
-export const loadProject = project => ({
+export const setProject = id => ({
   type: SET_PROJECT,
-  project
+  id
 });
 
 export const loadProjectList = () => ({
