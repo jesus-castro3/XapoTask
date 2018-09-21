@@ -10,7 +10,6 @@
 
 .sidebar {
   width: 30%;
-  min-width: 200px;
   text-align: center;
   border-right: 2px solid #557dc7;
   background: #7fadd8;
@@ -43,6 +42,20 @@ li.project-list__item:hover {
 
 .project-view {
   text-align: center;
+  width: 70%;
+}
+
+.project-view__empty {
+  width: 70%;
+  text-align: center;
+  margin-top: 25%;
+}
+
+.project-view__empty h3 {
+  margin: auto 250px;
+  color: grey;
+  border: 5px dotted #4674c9;
+  padding: 20px;
 }
 
 .project-view__details {
@@ -83,6 +96,66 @@ li.project-list__item:hover {
   width: inherit;
 }
 
+li.project-list__item {
+    list-style: none;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li.project-list__item span {
+    margin-right: 20px;
+}
+
+.project-list__item-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+i.illuminati::before {
+    content: "";
+    height: 25px;
+    width: 27px;
+    border-top: 2px;
+    border-left: 2px;
+    background: transparent;
+    position: absolute;
+    border-color: #000;
+    top: -16px;
+    left: -6px;
+    border-left-style: solid;
+    border-top-style: solid;
+    transform: rotate(260deg);
+}
+
+i.illuminati:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 2px;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background: #000;
+    -webkit-transform: rotate(125deg);
+    -ms-transform: rotate(125deg);
+    transform: rotate(125deg);
+}
+
+i.illuminati {
+    height: 7px;
+    border-bottom-left-radius: 275%;
+    width: 10px;
+    background-color: #fff;
+    display: inline-block;
+    box-shadow: 0px 0px 0px 2px #000, 0px 0px 0px 3px #d6d6d6;
+    border-top-right-radius: 260%;
+    transform: rotate(145deg);
+}
+
+i.illuminati:hover {
+    box-shadow: 0px 0px 0px 2px #000, 0px 0px 0px 3px #d6d6d6, 0px 0px 3px 5px yellow;
+}
 
 @media screen and (max-width: 768px) {
   .project-card {

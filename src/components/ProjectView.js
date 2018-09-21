@@ -2,9 +2,14 @@ import React from 'react';
 import ContributorsCard from './ContributorsCard';
 import PropTypes from 'prop-types';
 
+const ProjectViewEmtpy = () => (
+  <div className="project-view__empty">
+    <h3>Select a project from the list to the left :)</h3>
+  </div>
+);
 
 const ProjectView = ({contributors, project}) => {
-  if(!project) { return null; }
+  if(!project) { return <ProjectViewEmtpy/>; }
   return (
     <div className="project-view">
       <h1 className="project-view__name">{project.name}</h1>
